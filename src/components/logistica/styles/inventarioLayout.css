@@ -1,0 +1,12 @@
+.selector {
+  padding: 20px 15px 20px 20px;
+}
+
+.selector select{
+
+    width: 250px;
+    height: 28px;
+    outline:none;
+    border-radius: 6px;
+    border: 1px solid lightgrey;
+}

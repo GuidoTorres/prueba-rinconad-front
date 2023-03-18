@@ -1,0 +1,195 @@
+.modal-registrar-contrato .modal-body .cabecera {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 6px;
+  padding: 5px;
+  gap: 5px;
+}
+.modal-registrar-contrato .modal-body fieldset {
+  border: 1px solid #d9d9d9;
+
+}
+.modal-registrar-contrato .modal-body .cooperativa {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-radius: 6px;
+  padding: 5px;
+  gap: 5px;
+}
+
+.modal-registrar-contrato .modal-body .prueba {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 6px;
+  padding: 5px;
+  gap: 5px;
+}
+
+.modal-registrar-contrato .modal-body .fiscalizador {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-radius: 6px;
+  padding: 5px;
+  gap: 5px;
+}
+
+.modal-registrar-contrato .modal-body .fiscalizador .autoriza {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 5px;
+}
+.modal-registrar-contrato .modal-body .fiscalizador .autoriza .radio {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.modal-registrar-contrato .modal-body .control {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-radius: 6px;
+  padding: 5px;
+  gap: 5px;
+}
+.modal-registrar-contrato .modal-body .control div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+
+}
+
+.modal-registrar-contrato .modal-body .control .autoriza {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+}
+.modal-registrar-contrato .modal-body .control .autoriza div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.modal-registrar-contrato .modal-body .prueba2 {
+  display: grid;
+  grid-template-areas:
+    "topico seguridad"
+    "topico ambiente";
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+.modal-registrar-contrato .modal-body .topico {
+  grid-area: topico;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 6px;
+  padding: 5px;
+  gap: 5px;
+}
+
+.modal-registrar-contrato .modal-body .topico div {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.modal-registrar-contrato .modal-body .topico .autoriza {
+  display: grid;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.modal-registrar-contrato .modal-body .topico .autoriza div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.modal-registrar-contrato .modal-body .seguridad {
+  grid-area: seguridad;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 5px;
+  border-radius: 6px;
+}
+.modal-registrar-contrato .modal-body .seguridad section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.modal-registrar-contrato .modal-body .seguridad section div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 3px;
+  padding-top: 4px;
+}
+.modal-registrar-contrato .modal-body .seguridad section div div {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-registrar-contrato .modal-body .ambiente {
+  grid-area: ambiente;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 5px;
+  border-radius: 6px;
+}
+.modal-registrar-contrato .modal-body .ambiente section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.modal-registrar-contrato .modal-body .ambiente section div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 3px;
+  padding-top: 4px;
+}
+.modal-registrar-contrato .modal-body .ambiente section div div {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-registrar-contrato .modal-body .recursos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 5px;
+  border-radius: 6px;
+}
+.modal-registrar-contrato .modal-body .recursos div {
+  display: flex;
+  align-items: center;
+}
+.modal-registrar-contrato .modal-body .recursos div div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 5px;
+}
+
+.modal-registrar-contrato .modal-body .button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+}
+
+.modal-registrar-contrato .modal-body .button-container  button{
+  border-radius: 20px;
+  border: 1px solid #079434;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 110px;
+}
+
+
+.modal-registrar-contrato .modal-body .button-container  button:hover{
+background-color: #079434;
+border: none;
+color: white;
+}

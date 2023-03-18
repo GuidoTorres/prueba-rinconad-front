@@ -1,0 +1,29 @@
+.modal-proveedor .modal-body {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.modal-proveedor .modal-body div {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.modal-proveedor .modal-body .button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.modal-proveedor .modal-body .button-container button {
+  border-radius: 20px;
+  border: 1px solid #079434;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 110px;
+}
+
+.modal-proveedor .modal-body .button-container button:hover {
+  background-color: #079434;
+  border: none;
+  color: white;
+}

@@ -1,0 +1,117 @@
+.sidebar-container {
+  height: 100%;
+  width: 100%;
+}
+.sidebar-container section {
+  background-color: #0396e6;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-container .sidebar-logo {
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  position: absolute;
+  top: 70px;
+}
+
+.sidebar-container .sidebar-logo img {
+  border-radius: 50%;
+  height: 100%;
+}
+
+.sidebar-container .sidebar-logo-responsive {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 70px;
+}
+.sidebar-container .sidebar-logo-responsive img {
+  border-radius: 50%;
+  height: 100%;
+}
+.sidebar-container .sidebar-areas {
+  width: 100%;
+  margin-top: -60px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sidebar-container .sidebar-areas-responsive {
+  width: 100%;
+  margin-top: -60px;
+}
+
+.sidebar-container .sidebar-areas ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sidebar-container .sidebar-areas ul li {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-container .sidebar-areas ul li span {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding-left: 23px;
+}
+
+.sidebar-container .sidebar-areas ul li span label {
+  margin-left: 5px;
+}
+
+.sidebar-container .sidebar-areas-responsive ul li {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.sidebar-container .sidebar-areas-responsive ul li label {
+  display: none;
+}
+
+.activo {
+  background-color: #d1c126;
+  width: 90%;
+  height: 70%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 18px;
+}
+
+.inactivo {
+  background-color: white;
+  width: 90%;
+  height: 70%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 18px;
+
+}

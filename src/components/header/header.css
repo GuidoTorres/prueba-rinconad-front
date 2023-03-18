@@ -1,0 +1,82 @@
+.header-container {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+}
+
+.header-div {
+  background-color: #D1C126;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 25px 20px 25px 20px;
+  font-size: 15px;
+  justify-content: space-between;
+  width: 100%;
+
+}
+.back {
+  font-size: 25px;
+  font-weight: bold;
+  color: black !important;
+  text-decoration: none;
+}
+.back:hover {
+  transform: scale(1.2);
+}
+
+.header-role label {
+  font-size: 20px;
+  font-weight: bold;
+}
+.header-user {
+  display: flex;
+  align-items: center;
+}
+
+.header-user label{
+  font-size: 20px;
+}
+
+.header-user label:nth-child(1) {
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.header-user label:nth-child(21) {
+  margin-right: 5px;
+  font-weight: 600;
+}
+
+.header-user div {
+  background-color: black;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+}
+.header-role span {
+  border-radius: 50%;
+  height: 45px;
+  width: 35px;
+  background-color: black;
+  color: black;
+}
+
+@media screen and (min-width: 400px) {
+  .header-container {
+    flex-direction: row;
+  }
+  .header-role {
+    display: flex;
+    align-items: center;
+  }
+  .header-role label {
+    margin-left: 15px;
+    font-weight: 600;
+    display: block;
+  }
+}

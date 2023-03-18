@@ -1,0 +1,24 @@
+
+.personal-buscador {
+  padding: 0;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.personal-buscador .button-container button {
+  border-radius: 20px;
+  border: 1px solid #079434;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 110px;
+}
+
+.personal-buscador .button-container button:hover {
+  background-color: #079434;
+  border: none;
+  color: white;
+}

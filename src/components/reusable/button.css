@@ -1,0 +1,13 @@
+.button-registrar {
+  border-radius: 20px;
+  border: 1px solid #079434;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.button-registrar:hover {
+  background-color: #079434;
+  border: none;
+  color: white !important;
+}

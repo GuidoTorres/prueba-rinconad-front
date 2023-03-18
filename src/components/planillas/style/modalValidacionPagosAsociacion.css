@@ -1,0 +1,20 @@
+.modal-validacion .table-container {
+}
+
+.modal-validacion .table-container th:nth-child(1) {
+  border: 1px solid black;
+  width: 40px;
+}
+.modal-validacion .table-container th:nth-child(2) {
+  border: 1px solid black;
+  width: 340px;
+}
+.modal-validacion .table-container th {
+  border: 1px solid black;
+  width: 40px;
+}
+
+.modal-validacion .table-container tr td {
+  border: 1px solid black;
+  text-align: center;
+}

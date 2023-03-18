@@ -1,0 +1,17 @@
+.modal-juntar .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-juntar .modal-container{
+  
+      width: 80%;
+      height: 78%;
+      overflow-y: auto;
+  }

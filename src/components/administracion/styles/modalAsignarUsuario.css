@@ -1,0 +1,26 @@
+.modal-rol .modal-body {
+  display: grid;
+  padding: 0;
+  height: 180px;
+}
+
+.modal-rol .modal-body .button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-rol .modal-body .button-container button {
+  border-radius: 20px;
+  border: 1px solid #079434;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 110px;
+}
+
+.modal-rol .button-container button:hover{
+background-color: #079434;
+border: none;
+color: white;
+}

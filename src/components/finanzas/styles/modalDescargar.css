@@ -1,0 +1,31 @@
+.modal-descargar .modal-body {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.modal-descargar .modal-body div {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 10px;
+}
+
+
+.modal-descargar .modal-body .button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.modal-descargar .modal-body .button-container button {
+  border-radius: 20px;
+  border: 1px solid #079434;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 110px;
+}
+
+.modal-descargar .modal-body .button-container button:hover {
+  background-color: #079434;
+  border: none;
+  color: white;
+}

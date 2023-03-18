@@ -1,0 +1,52 @@
+.modal-requerimiento .modal-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.modal-requerimiento .modal-body {
+  padding: 0;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+.modal-requerimiento .modal-body .agregar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.modal-requerimiento .modal-body .agregar button {
+  display: flex;
+
+  align-items: center;
+}
+
+.modal-requerimiento .modal-body .container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.modal-requerimiento .button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-requerimiento .button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.modal-requerimiento .button-container button {
+  border-radius: 20px;
+  border: 1px solid #079434;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 110px;
+}
+
+.modal-requerimiento .button-container button:hover {
+  background-color: #079434;
+  border: none;
+  color: white;
+}

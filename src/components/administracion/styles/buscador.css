@@ -1,0 +1,19 @@
+.buscador-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buscador-container .button-container button {
+  border: 1px solid #079434;
+  border-radius: 20px;
+  width: 110px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.buscador-container .button-container button:hover {
+  background-color: #079434;
+  border: none;
+  color: white;
+}

@@ -1,0 +1,68 @@
+.modal-pago .modal-container {
+    overflow-y: auto;
+    width: 800px;
+    height: 450px;
+  }
+  .modal-pago .modal-container .cabecera {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+  }
+
+
+  
+  .modal-pago .modal-container .button-container {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+  }
+  
+  .modal-pago .modal-container .cabecera div {
+    display: flex;
+    gap: 50px;
+    margin-top: 5px;
+  }
+  
+  .modal-pago .modal-container .form {
+    padding: 5px 20px 0px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  
+  .modal-pago .modal-container .body {
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: 10px;
+    gap: 10px;
+  }
+  
+  .modal-pago .modal-container .input-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .modal-pago .modal-container .input-container div:nth-child(1) {
+    width: 250px;
+  }
+  
+  .modal-pago .modal-container .input-container div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .modal-pago .modal-container .footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .modal-pago .modal-container .footer button {
+    height: 30px;
+    width: 80px;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 6px;
+  }
+  

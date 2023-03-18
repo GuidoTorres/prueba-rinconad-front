@@ -1,0 +1,27 @@
+.rol {
+  height: 180px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+.rol span {
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.rol label {
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 800px) {
+  .rol {
+    margin-top: -150px;
+  }
+}

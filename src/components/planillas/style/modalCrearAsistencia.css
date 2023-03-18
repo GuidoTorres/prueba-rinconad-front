@@ -1,0 +1,5 @@
+.modal-asistencia .hora-ingreso {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

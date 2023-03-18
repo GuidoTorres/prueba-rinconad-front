@@ -1,0 +1,19 @@
+.buscador-inventario {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buscador-inventario div{
+  display: flex;
+  gap: 10px;
+}
+
+
+
+
+
+
+
+
+
+

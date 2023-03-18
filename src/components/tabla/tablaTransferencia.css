@@ -1,0 +1,17 @@
+.row-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 5px;
+  padding-left: 40px;
+}
+
+.row-container div {
+  margin-top: 2px;
+}
+
+.row-container table {
+  width: 300px;
+  text-align: center;
+}
+
+

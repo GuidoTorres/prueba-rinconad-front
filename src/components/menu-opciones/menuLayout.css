@@ -1,0 +1,40 @@
+.rol {
+    height: 200px;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    
+    /* margin-top: -150px; */
+  }
+  
+  .rol span {
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .rol span .icon{
+
+    font-size: 90px;
+  }
+
+  
+  .rol label {
+    margin-top: 20px;
+    font-weight: bold;
+    
+  }
+  
+  @media screen and (min-width: 800px) {
+    .rol {
+      margin-top: -150px;
+    }
+  }

@@ -1,0 +1,20 @@
+.modal-registrar-asociacion .modal-body .button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-registrar-asociacion .modal-body .button-container button {
+  border-radius: 20px;
+  border: 1px solid #079434;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 110px;
+  margin-top: 10px;
+}
+
+.modal-registrar-asociacion .modal-body .button-container button:hover {
+  background-color: #079434;
+  border: none;
+  color: white;
+}

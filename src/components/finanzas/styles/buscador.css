@@ -1,0 +1,32 @@
+.buscador-finanzas {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.buscador-finanzas div {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 5px;
+}
+
+.buscador-finanzas .button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.buscador-finanzas .button-container button {
+  border-radius: 20px;
+  border: 1px solid #079434;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.buscador-finanzas .button-container button:hover {
+  background-color: #079434;
+  border: none;
+  color: white;
+}

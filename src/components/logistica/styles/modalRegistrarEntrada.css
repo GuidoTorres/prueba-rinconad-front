@@ -1,0 +1,47 @@
+
+.modal-registrar-entrada .modal-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+  padding: 0;
+}
+.modal-registrar-entrada .modal-body .container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.modal-registrar-entrada .modal-body .productos {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.modal-registrar-entrada .tabla {
+  margin-top: 20px;
+}
+
+.modal-registrar-entrada .button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-registrar-entrada .button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.modal-registrar-entrada .button-container button {
+  border-radius: 20px;
+  border: 1px solid #079434;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 110px;
+}
+
+.modal-registrar-entrada .button-container button:hover {
+  background-color: #079434;
+  border: none;
+  color: white;
+}

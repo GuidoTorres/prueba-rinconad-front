@@ -1,0 +1,60 @@
+.image {
+  background-image: url("../../assets/fondo-login.jpeg");
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.image img {
+  height: 100%;
+  width: 100%;
+}
+.login {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login .login-form {
+  width: 400px;
+  height: 500px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  background: rgba(33, 126, 173, 0.6);
+}
+
+.login .login-form .logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+.login .login-form .logo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+
+.login .login-form label {
+  color: #151818;
+  font-size: 18px;
+  font-weight: bold;
+}
+.login .login-form .input-form {
+  margin-top: 4px;
+}
+
+.login .login-form .inputs {
+  width: 80%;
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+.login .login-form .inputs div {
+  margin-top: 20px;
+}

@@ -1,0 +1,43 @@
+.modal-reporte {
+  display: grid;
+  grid-template-rows: 10% 1fr;
+}
+
+.modal-reporte .inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 5px;
+
+}
+.modal-reporte .inputs div {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content:flex-end;
+  justify-content: center;
+}
+.modal-reporte .inputs .button-container {
+  display: flex;
+  margin-top: 20px;
+}
+
+.modal-reporte .inputs .button-container button {
+  border-radius: 20px;
+  border: 1px solid #079434;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 150px;
+}
+
+.modal-reporte .inputs .button-container button:hover {
+  background-color: #079434;
+  border: none;
+  color: white;
+}
+
+.modal-reporte .grafico {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}

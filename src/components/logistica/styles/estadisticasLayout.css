@@ -1,0 +1,23 @@
+.estadisticas-container {
+  display: grid;
+  grid-template-rows: 10% 1fr;
+  height: 90%;
+
+}
+.estadisticas-container .estadisticas-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 40%;
+  padding: 20px 0px 0px 30px;
+  gap: 10px;
+}
+
+.estadisticas-container .grafico-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  height: 80%;
+  width: 100%;
+
+}

@@ -1,0 +1,132 @@
+.modal-producto-entrada {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.modal-producto-entrada.overlay {
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+  }
+
+.modal-producto-entrada .modal-container {
+  width: 800px;
+  height: 500px;
+  background-color: white;
+  position: absolute;
+  z-index: 2;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+
+.modal-producto-entrada .modal-container .grid {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 5px;
+  }
+  
+  .modal-producto-entrada .modal-container .grid section:nth-child(1) {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-producto-entrada .modal-container .grid section:nth-child(1) div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+  }
+  
+  .modal-producto-entrada .modal-container .grid section div label {
+    margin-top: 7px;
+  }
+  
+  .modal-producto-entrada .modal-container .grid section div select {
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+    padding: 3px;
+  }
+  
+  .modal-producto-entrada .modal-container .grid section:nth-child(2) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-producto-entrada .modal-container .grid section:nth-child(2) .imagen {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+  }
+  .modal-producto-entrada
+    .modal-container
+    .grid
+    section:nth-child(2)
+    .imagen
+    .drag {
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -10px;
+  }
+  .modal-producto-entrada
+    .modal-container
+    .grid
+    section:nth-child(2)
+    .imagen
+    .drag
+    img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .modal-producto-entrada .modal-container .grid section:nth-child(1) div div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-producto-entrada .modal-container .grid .imagen {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .modal-producto-entrada .modal-container .grid .imagen .drag {
+    width: 90%;
+    height: 92%;
+    margin-top: 25px;
+  }
+  
+  .modal-producto-entrada .modal-container section .button-container {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 20px;
+  }
+  
+  .modal-producto-entrada .modal-container section .button-container button {
+    width: 100px;
+    height: 25px;
+    background-color: black;
+    color: white;
+    border-radius: 6px;
+    border: none;
+  }
