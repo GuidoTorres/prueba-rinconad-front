@@ -325,7 +325,7 @@ export const personalLayout = (
       name: "Código",
       sortable: true,
       center: true,
-      width: "100px",
+      width: "140px",
       selector: (row) => row?.codigo_trabajador,
     },
     {
@@ -478,7 +478,7 @@ export const asociacionLayout = (
     {
       id: "Nro",
       name: "Nro",
-      width: "100px",
+      width: "80px",
       selector: (row, index) => row?.id,
       sortable: true,
     },

@@ -34,7 +34,7 @@ const ModalRequerimiento = ({ id, data, actualizarTabla }) => {
     setModal3(false);
     setDataToEdit(null);
     setNewJson([]);
-    setRequerimiento([]);
+
   };
 
   const getRequerimientoCodigo = async () => {
@@ -60,10 +60,9 @@ const ModalRequerimiento = ({ id, data, actualizarTabla }) => {
   }, [id]);
 
   useEffect(() => {
-    if (dataToEdit === null) {
-      setRequerimiento((value) => ({ ...value, codigo: idReq }));
-    }
-  }, [idReq, dataToEdit]);
+    setRequerimiento((value) => ({ ...value, codigo: idReq }));
+  }, [idReq]);
+
 
   useEffect(() => {
     getRequerimientoCodigo();
@@ -81,10 +80,10 @@ const ModalRequerimiento = ({ id, data, actualizarTabla }) => {
 
   //para editar
   useEffect(() => {
-    if (dataToEdit) {
+    if (dataToEdit !== null) {
       setRequerimiento((value) => ({
         ...value,
-        codigo: dataToEdit.codigo,
+        codigo: dataToEdit.id,
         fecha_pedido: dataToEdit?.fecha_pedido,
         fecha_entrega: dataToEdit?.fecha_entrega,
         solicitante: dataToEdit?.solicitante,
@@ -103,7 +102,7 @@ const ModalRequerimiento = ({ id, data, actualizarTabla }) => {
       const formatData = dataToEdit?.requerimiento_productos?.map((item) => {
         return {
           codigo_producto: item?.producto?.id,
-          codigo: requerimiento?.codigo,
+          // codigo: requerimiento?.codigo,
           fecha_pedido: requerimiento.fecha_pedido,
           fecha_entrega: requerimiento.fecha_entrega,
           solicitante: requerimiento.solicitante,

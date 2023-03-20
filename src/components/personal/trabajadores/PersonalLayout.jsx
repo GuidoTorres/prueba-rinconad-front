@@ -76,12 +76,16 @@ const PersonalLayout = () => {
             item?.apellido_materno
               ?.toLowerCase()
               ?.includes(filterText.toLowerCase()) ||
-            item?.dni?.toLowerCase()?.includes(filterText.toLowerCase())
+            item?.dni?.toLowerCase()?.includes(filterText.toLowerCase()) || 
+            item?.campamento?.toLowerCase()?.includes(filterText.toLowerCase()) 
+
+
         )
 
         .flat();
     setSearch(filtered);
   }, [filterText, dataTrabajadores]);
+
 
   const handleEvaluacion = (e) => {
     setModal1(true);
@@ -124,6 +128,7 @@ const PersonalLayout = () => {
           importar={true}
           registrar={true}
           actualizarTrabajadores={getTrabajadores}
+          setFilterText={setFilterText}
         />
         {dataTrabajadores.length > 0 ? (
           <Tabla columns={columns} table={search} />

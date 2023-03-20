@@ -58,7 +58,7 @@ const Tabla = ({ columns, table, actualizarTabla }) => {
       name: "Código",
       sortable: true,
       center: true,
-      width: "100px",
+      width: "140px",
       selector: (row) => row?.codigo_trabajador,
     },
     {

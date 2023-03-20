@@ -43,6 +43,10 @@ const InventarioLayout = () => {
   const getProductoAlmacen = async () => {
     const response = await getData(`almacen/producto/${almacen_id}`);
     setData1(response.data);
+
+    console.log('====================================');
+    console.log("ppokemon");
+    console.log('====================================');
   };
 
   useEffect(() => {
@@ -108,7 +112,12 @@ const InventarioLayout = () => {
         id={almacen_id}
         data={data1}
       />
-      <ModalHistorialEntradas open={modal1} id={almacen_id} data={data1} />
+      <ModalHistorialEntradas
+        open={modal1}
+        id={almacen_id}
+        data={data1}
+        actualizarProductos={getProductoAlmacen}
+      />
       <ModalRequerimiento id={almacen_id} data={data1} />
     </>
   );

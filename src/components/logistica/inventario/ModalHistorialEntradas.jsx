@@ -16,7 +16,7 @@ import { Modal, Empty } from "antd";
 import { notificacion } from "../../../helpers/mensajes";
 import dayjs from "dayjs";
 
-const ModalHistorialEntradas = ({ id, data }) => {
+const ModalHistorialEntradas = ({ id, data, actualizarProductos }) => {
   const {
     setModal1,
     modal1,
@@ -155,6 +155,7 @@ const ModalHistorialEntradas = ({ id, data }) => {
         actualizarTabla={getHistorial}
         productos={data}
         tipo={tipo}
+        actualizarProductos = {actualizarProductos}
       />
     </Modal>
   );

@@ -80,9 +80,7 @@ const AsociacionLayout = () => {
       ])
       .flat();
 
-      console.log('====================================');
-      console.log(filtered);
-      console.log('====================================');
+
     setSearch(filtered);
 
     if (filterText) {
@@ -93,40 +91,37 @@ const AsociacionLayout = () => {
           item?.campamento?.toLowerCase()?.includes(filterText.toLowerCase()) ||
           item?.tipo?.toLowerCase()?.includes(filterText.toLowerCase()) ||
           item?.trabajador
-            ?.filter((data) => data.codigo_trabajador)
+            ?.map((data) => data.codigo_trabajador)
             .toString()
             .toLowerCase()
             ?.includes(filterText.toLowerCase()) ||
           item?.trabajador
-            ?.filter((data) => data.nombre)
+            ?.map((data) => data.dni)
             .toString()
             .toLowerCase()
             ?.includes(filterText.toLowerCase()) ||
           item?.trabajador
-            ?.filter((data) => data.apellido_paterno)
+            ?.map((data) => data.apellido_paterno)
             .toString()
             .toLowerCase()
             ?.includes(filterText.toLowerCase()) ||
           item?.trabajador
-            ?.filter((data) => data.apellido_materno)
+            ?.map((data) => data.apellido_materno)
             .toString()
             .toLowerCase()
             ?.includes(filterText.toLowerCase()) ||
           item?.trabajador
-            ?.filter((data) => data.dni)
+            ?.map((data) => data.nombre)
             .toString()
             .toLowerCase()
             ?.includes(filterText.toLowerCase())
       );
-
-
+        console.log('====================================');
+        console.log(filtered2);
+        console.log('====================================');
       setSearch(filtered2);
     }
   }, [filterText, asociaciones]);
-
-  console.log('====================================');
-  console.log(search);
-  console.log('====================================');
 
   const changeHandler = (e) => {
     inputFileRef.current.click();
