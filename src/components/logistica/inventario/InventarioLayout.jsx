@@ -44,9 +44,6 @@ const InventarioLayout = () => {
     const response = await getData(`almacen/producto/${almacen_id}`);
     setData1(response.data);
 
-    console.log('====================================');
-    console.log("ppokemon");
-    console.log('====================================');
   };
 
   useEffect(() => {

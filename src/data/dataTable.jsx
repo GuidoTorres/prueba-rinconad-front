@@ -2181,14 +2181,14 @@ export const inventario = (handleEdit, handleDelete) => {
       id: "codigo",
       name: "Código",
       width: "80px",
-      selector: (row, index) => row.id,
+      selector: (row, index) => row?.id,
     },
     {
       id: "nombre",
       name: "Nombre",
       width: "280px",
 
-      selector: (row, index) => row.nombre,
+      selector: (row, index) => row?.nombre,
     },
     {
       id: "barras",
@@ -2369,7 +2369,11 @@ export const registrarEntrada = (
           <Input
             type="number"
             name="cantidad"
-            disabled={pedido !== "" && e.cantidad !== "" ? true : false}
+            disabled={
+              requerimiento || (pedido !== "" && e.cantidad !== "")
+                ? true
+                : false
+            }
             value={e.cantidad}
             onChange={(a) => handleData(a, i)}
             style={{ width: "100px" }}

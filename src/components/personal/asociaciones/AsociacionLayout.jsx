@@ -80,7 +80,6 @@ const AsociacionLayout = () => {
       ])
       .flat();
 
-
     setSearch(filtered);
 
     if (filterText) {
@@ -90,35 +89,22 @@ const AsociacionLayout = () => {
           item?.nombre?.toLowerCase()?.includes(filterText.toLowerCase()) ||
           item?.campamento?.toLowerCase()?.includes(filterText.toLowerCase()) ||
           item?.tipo?.toLowerCase()?.includes(filterText.toLowerCase()) ||
-          item?.trabajador
-            ?.map((data) => data.codigo_trabajador)
-            .toString()
-            .toLowerCase()
-            ?.includes(filterText.toLowerCase()) ||
-          item?.trabajador
-            ?.map((data) => data.dni)
-            .toString()
-            .toLowerCase()
-            ?.includes(filterText.toLowerCase()) ||
-          item?.trabajador
-            ?.map((data) => data.apellido_paterno)
-            .toString()
-            .toLowerCase()
-            ?.includes(filterText.toLowerCase()) ||
-          item?.trabajador
-            ?.map((data) => data.apellido_materno)
-            .toString()
-            .toLowerCase()
-            ?.includes(filterText.toLowerCase()) ||
-          item?.trabajador
-            ?.map((data) => data.nombre)
-            .toString()
-            .toLowerCase()
-            ?.includes(filterText.toLowerCase())
+          item.trabajador.filter(
+            (dat) =>
+              dat.codigo_trabajador
+                .toLowerCase()
+                ?.includes(filterText.toLowerCase()) ||
+              dat.dni.toLowerCase()?.includes(filterText.toLowerCase()) ||
+              dat.apellido_paterno
+                .toLowerCase()
+                ?.includes(filterText.toLowerCase()) ||
+              dat.apellido_materno
+                .toLowerCase()
+                ?.includes(filterText.toLowerCase()) ||
+              dat.nombre.toLowerCase()?.includes(filterText.toLowerCase())
+          )
       );
-        console.log('====================================');
-        console.log(filtered2);
-        console.log('====================================');
+
       setSearch(filtered2);
     }
   }, [filterText, asociaciones]);

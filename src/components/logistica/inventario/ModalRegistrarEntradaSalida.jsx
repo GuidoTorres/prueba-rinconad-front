@@ -55,7 +55,7 @@ const ModalRegistrarEntradaSalida = ({
   const getArea = async () => {
     const route = "area";
     const route1 = `entrada`;
-    const route2 = "trabajador";
+    const route2 = "requerimiento/trabajador";
     const route3 = "pedido/id";
     const route4 = "pedido/entrada";
     const route5 = "requerimiento";
@@ -99,6 +99,8 @@ const ModalRegistrarEntradaSalida = ({
     const response = await getData(`almacen/producto/${almacen_id}`);
     setData1(response.data);
   };
+
+  useEffect(() => {getProductoAlmacen()},[])
 
   useEffect(() => {
     getArea();
@@ -276,13 +278,15 @@ const ModalRegistrarEntradaSalida = ({
       const filterRequerimiento = requerimiento.filter(
         (item) => item.id === entrada.codigo_requerimiento
       );
-
+      console.log('====================================');
+      console.log(filterRequerimiento);
+      console.log('====================================');
       setEntrada((value) => ({
         ...value,
         encargado: filterRequerimiento?.at(-1)?.solicitante,
         personal: filterRequerimiento?.at(-1)?.solicitante,
         dni: filterRequerimiento?.at(-1)?.dni,
-        area_id: filterRequerimiento?.at(-1)?.area,
+        area: filterRequerimiento?.at(-1)?.area_id,
       }));
 
       console.log(filterRequerimiento);
@@ -301,7 +305,7 @@ const ModalRegistrarEntradaSalida = ({
             fecha: entrada?.fecha,
             dni: entrada?.dni,
             encargado: entrada?.personal,
-            area_id: entrada?.area_id,
+            area: entrada?.area,
             codigo_requerimiento: entrada?.codigo_requerimiento,
             tipo: tipo,
             producto_id: item.producto_id,
@@ -324,7 +328,7 @@ const ModalRegistrarEntradaSalida = ({
     tipo,
     requerimiento,
     almacen_id,
-    entrada.area_id,
+    entrada.area,
   ]);
 
   //para calcular el costo total de de los productos
@@ -368,7 +372,7 @@ const ModalRegistrarEntradaSalida = ({
           tipo: tipo,
           stock: item?.producto?.stock,
           dni: entrada.dni,
-          area_id: entrada.area_id,
+          area: entrada.area_id,
           personal: entrada.encargado,
         };
       });
@@ -394,27 +398,13 @@ const ModalRegistrarEntradaSalida = ({
     if (entrada?.dni?.length >= 7) {
       const filterDni = trabajador?.filter((item) => item.dni === entrada.dni);
 
-      const format = filterDni.map((item) => {
-        return {
-          nombre:
-            item?.apellido_paterno +
-            " " +
-            item?.apellido_materno +
-            " " +
-            item?.nombre,
-          area: item?.contrato
-            ?.filter((data) => data?.finalizado === false)
-            .at(-1)?.area,
-        };
-      });
-
       if (filterDni.length > 0) {
-        const traba = format?.at(-1);
+        const traba = filterDni?.at(-1);
         setEntrada((values) => ({
           ...values,
           encargado: traba?.nombre,
           personal: traba?.nombre,
-          area_id: traba?.area,
+          area: traba.area,
         }));
         // setAreaId(traba?.area);
       }
@@ -487,10 +477,11 @@ const ModalRegistrarEntradaSalida = ({
                 stock: parseInt(item?.stock),
                 costo_inicial: parseFloat(item?.precio),
                 costo: parseFloat(item?.precio).toFixed(2),
+                costo_total: entrada.costo_total,
               };
             })
           : "";
-    
+
       if (formatData.length > 0) {
         const result = newJson?.filter((item) => {
           const prueba = formatData.find(
@@ -509,7 +500,7 @@ const ModalRegistrarEntradaSalida = ({
         }
       }
     }
-  }, [entrada, newJson]);
+  }, [entrada, newJson, entrada.area]);
 
   //para actualizar la cantidad y el costo en la tabla
   useEffect(() => {
@@ -622,7 +613,7 @@ const ModalRegistrarEntradaSalida = ({
     console.log(newJson);
     console.log(e);
     setNewJson((current) => current.filter((item) => item.id !== e.id));
-    setEntrada(value => ({...value, producto: ""}))
+    setEntrada((value) => ({ ...value, producto: "" }));
   };
 
   const columns = registrarEntrada(
@@ -734,9 +725,9 @@ const ModalRegistrarEntradaSalida = ({
                 <label>Área</label>
                 <Select
                   placeholder="Área"
-                  name="area_id"
-                  value={entrada.area_id}
-                  onChange={(e) => handleData(e, null, "area_id")}
+                  name="area"
+                  value={entrada.area}
+                  onChange={(e) => handleData(e, null, "area")}
                   options={area.map((item, i) => {
                     return {
                       label: item.nombre,
@@ -814,7 +805,8 @@ const ModalRegistrarEntradaSalida = ({
               optionFilterProp="children"
               name="producto"
               disabled={
-                entrada.codigo_pedido !== "" && entrada.codigo_pedido !== "-1"
+                entrada.codigo_requerimiento !== "" ||
+                (entrada.codigo_pedido !== "" && entrada.codigo_pedido !== "-1")
                   ? true
                   : false
               }

@@ -136,7 +136,7 @@ export const valuesContratoEmpresa = (id) => {
     nota_contrato: "",
     puesto: "",
     estado: false,
-    empresa_id: id
+    empresa_id: id,
   };
 };
 
@@ -224,7 +224,7 @@ export const productoValues = (id, codigo) => {
   };
 };
 
-export const entradaSalidaValues = (tipo, ) => {
+export const entradaSalidaValues = (tipo) => {
   return {
     codigo: "",
     motivo: "",
@@ -244,7 +244,8 @@ export const entradaSalidaValues = (tipo, ) => {
     costo: "",
     dni: "",
     costo_total: "",
-    area_id: "", personal: ""
+    area_id: "",
+    personal: "",
   };
 };
 
@@ -263,7 +264,7 @@ export const requerimientoValues = (id, edit) => {
     estado: "",
     producto: "",
     personal: "",
-    dni: ""
+    dni: "",
   };
 };
 
