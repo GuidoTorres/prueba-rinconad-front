@@ -175,8 +175,27 @@ const ModalRegistrarEntradaSalida = ({
               precio: item?.producto?.precio,
               stock: item?.producto?.stock,
               unidad: item?.producto?.unidad?.nombre,
+              encargado: filterData
+                ?.map(
+                  (data) =>
+                    data?.requerimiento_pedidos?.at(-1)?.requerimiento
+                      ?.solicitante
+                )
+                .flat()
+                .toString(),
+              dni: filterData
+                ?.map(
+                  (data) =>
+                    data?.requerimiento_pedidos?.at(-1)?.requerimiento?.dni
+                )
+                .flat()
+                .toString(),
             };
           });
+
+      console.log("====================================");
+      console.log(formatProducto);
+      console.log("====================================");
 
       const mergeProducto =
         formatProducto.length > 0 &&
@@ -214,11 +233,11 @@ const ModalRegistrarEntradaSalida = ({
               tipo: entrada?.tipo,
               codigo: entrada?.codigo,
               motivo: entrada?.motivo,
-              encargado: entrada?.encargado,
+              encargado: item?.encargado,
               codigo_compra: entrada?.codigo_compra,
               boleta: entrada?.boleta,
               codigo_requerimiento: formatData,
-              dni: entrada.dni,
+              dni: item.dni,
               codigo_pedido: entrada.codigo_pedido,
             };
           })
@@ -365,12 +384,8 @@ const ModalRegistrarEntradaSalida = ({
         const traba = filterDni?.at(-1);
         setEntrada((values) => ({
           ...values,
-          encargado:
-            traba?.nombre +
-            " " +
-            traba?.apellido_paterno +
-            " " +
-            traba?.apellido_materno,
+          encargado: traba?.nombre,
+          personal: traba?.nombre,
           area: traba?.area,
         }));
         // setAreaId(traba?.area);
@@ -493,23 +508,61 @@ const ModalRegistrarEntradaSalida = ({
     let route = "entrada";
     e.preventDefault();
 
-    if (dataToEdit === null) {
-      setCargando(true);
-      const response = await createData(newJson, route);
-      if (response) {
-        notificacion(response.status, response.msg);
-        closeModal();
-        actualizarTabla();
-        setCargando(false);
+    if (tipo === "salida") {
+      const validarCantidad = newJson.filter(
+        (item) =>
+          parseInt(item.cantidad) > parseInt(item.stock) &&
+          item.tipo === "salida"
+      );
+
+      const validarStock = newJson.filter((item) => parseInt(item.stock) <= 0);
+
+      if (validarCantidad.length > 0) {
+        notificacion(
+          500,
+          "No se puede realizar la salida, stock insuficiente."
+        );
+      }
+      if (validarCantidad.length === 0 && validarStock.length === 0) {
+        if (dataToEdit === null) {
+          setCargando(true);
+          const response = await createData(newJson, route);
+          if (response) {
+            notificacion(response.status, response.msg);
+            closeModal();
+            actualizarTabla();
+            setCargando(false);
+          }
+        } else {
+          setCargando(true);
+          const response = await updateData(newJson, dataToEdit.id, route);
+          if (response) {
+            notificacion(response.status, response.msg);
+            closeModal();
+            actualizarTabla();
+            setCargando(false);
+          }
+        }
       }
     } else {
-      setCargando(true);
-      const response = await updateData(newJson, dataToEdit.id, route);
-      if (response) {
-        notificacion(response.status, response.msg);
-        closeModal();
-        actualizarTabla();
-        setCargando(false);
+      if (dataToEdit === null) {
+        setCargando(true);
+        const response = await createData(newJson, route);
+        if (response) {
+          notificacion(response.status, response.msg);
+          closeModal();
+          actualizarTabla();
+          setCargando(false);
+        }
+      } else {
+        setCargando(true);
+        const response = await updateData(newJson, dataToEdit.id, route);
+        if (response) {
+          notificacion(response.status, response.msg);
+          closeModal();
+          actualizarTabla();
+          setCargando(false);
+        }
       }
     }
   };

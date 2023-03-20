@@ -42,21 +42,28 @@ const ModalRegistrarContrato = ({
   const [socio, setSocio] = useState([]);
   const [id, setId] = useState("");
   const getAll = async () => {
-    const response1 = await getData(route1);
-    const response2 = await getData(route2);
-    const response3 = await getData(route3);
-    const response4 = await getData(route4);
-    const response5 = await getData(route5);
-    const response6 = await getData("contrato");
-    const response7 = await getData("contrato/last/id");
+    const response1 = getData(route1);
+    const response2 = getData(route2);
+    const response3 = getData(route3);
+    const response4 = getData(route4);
+    const response5 = getData(route5);
+    const response7 = getData("contrato/last/id");
 
-    setCargo(response1.data);
-    setCampamento(response2.data);
-    setGerencia(response3.data);
-    setArea(response4.data);
-    setSocio(response5.data);
-    setResponseContrato(response6.data);
-    setId(response7.data);
+    const all = await Promise.all([
+      response1,
+      response2,
+      response3,
+      response4,
+      response5,
+      response7,
+    ]);
+
+    setCargo(all[0].data);
+    setCampamento(all[1].data);
+    setGerencia(all[2].data);
+    setArea(all[3].data);
+    setSocio(all[4].data);
+    setId(all[5].data);
   };
   const trabajadorContratoValues = {
     fecha_inicio: "",
@@ -166,9 +173,6 @@ const ModalRegistrarContrato = ({
     setDataToEdit(null);
     setContrato(trabajadorContratoValues);
   };
-
-
-  console.log(cargo);
 
   const formData = modalRegistroContratoPersonal(
     contrato,

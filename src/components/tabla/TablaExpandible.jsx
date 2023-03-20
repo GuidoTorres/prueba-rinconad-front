@@ -83,16 +83,16 @@ const Tabla = ({ columns, table, actualizarTabla }) => {
     },
     {
       id: "Trabajador",
-      name: "Trabajador",
+      name: "Apellidos y Nombres",
       selector: (row) =>
-        row?.nombre + " " + row?.apellido_paterno + " " + row?.apellido_materno,
+        row?.apellido_paterno + " " + row?.apellido_materno + " " + row?.nombre,
       width: "300px",
       sortable: true,
     },
     {
       id: "Campamento",
       name: "Campamento",
-      selector: (row) => (!row?.campamento ? "Por asignar" : row?.campamento),
+      selector: (row) => (row?.campamento ? row?.campamento : "Por asignar"),
       sortable: true,
     },
     {
@@ -210,8 +210,13 @@ const Tabla = ({ columns, table, actualizarTabla }) => {
         paginationComponentOptions={paginationComponentOptions}
         responsive
         noHeader={true}
-        noDataComponent={"No se encontraron resultados."}
         conditionalRowStyles={conditionalRowStyles}
+        noDataComponent={
+          <Empty
+            image={Empty.PRESENTED_IMAGE_SIMPLE}
+            description={<span>No hay registros para mostrar.</span>}
+          />
+        }
       />
 
       {modal && <ModalRegistroPersonal actualizarTabla={actualizarTabla} />}

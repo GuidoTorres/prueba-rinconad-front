@@ -33,10 +33,6 @@ const ModalContratoAsociacion = ({
     ?.map((item) => item?.evaluacions?.id)
     .filter((item) => item !== undefined);
 
-    console.log('====================================');
-    console.log(ids);
-    console.log('====================================');
-
   //valores iniciales de contrato
   const contratoValues = valuesContrato(data, ids);
 
@@ -144,6 +140,7 @@ const ModalContratoAsociacion = ({
       setContratos(contratoValues);
     }
   }, [dataToEdit]);
+
 
   useEffect(() => {
     if (dataToEdit === null) {

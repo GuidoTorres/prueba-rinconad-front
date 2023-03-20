@@ -40,7 +40,7 @@ const ModalRequerimiento = ({ id, data, actualizarTabla }) => {
   const getRequerimientoCodigo = async () => {
     const route = "requerimiento";
     const route1 = "area";
-    const route2 = "trabajador";
+    const route2 = "requerimiento/trabajador";
     const route3 = "requerimiento/last/id";
 
     const response = getData(route);
@@ -55,7 +55,6 @@ const ModalRequerimiento = ({ id, data, actualizarTabla }) => {
     setTrabajador(all[2].data);
     setIdReq(all[3].data);
   };
-  console.log(requerimiento);
   useEffect(() => {
     setRequerimiento((value) => ({ ...value, almacen_id: id }));
   }, [id]);
@@ -142,25 +141,21 @@ const ModalRequerimiento = ({ id, data, actualizarTabla }) => {
       const filterDni = trabajador?.filter(
         (item) => item.dni === requerimiento.dni
       );
-      console.log("useffect dni");
       if (filterDni.length > 0) {
         const traba = filterDni?.at(-1);
         setRequerimiento((values) => ({
           ...values,
-          solicitante:
-            traba?.nombre +
-            " " +
-            traba?.apellido_paterno +
-            " " +
-            traba?.apellido_materno,
-          area: traba?.contrato
-            ?.filter((item) => item?.finalizado === false)
-            ?.at(-1)?.area,
+          solicitante: traba?.nombre,
+          area:
+            traba.contrato.length > 0 &&
+            traba?.contrato
+              ?.filter((item) => item?.finalizado === false)
+              ?.at(-1)?.area,
         }));
       }
     }
   }, [requerimiento.dni, trabajador]);
-  console.log(newJson);
+
   // filtrar el producto para llenar la tabla
   useEffect(() => {
     if (requerimiento.producto) {

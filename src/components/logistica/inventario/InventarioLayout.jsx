@@ -55,7 +55,7 @@ const InventarioLayout = () => {
 
   const handleEdit = (e) => {
     setDataToEdit(e);
-    setModal(true);
+    setAbrirProducto(true);
   };
   const handleDelete = async (e) => {
     const route = "producto";

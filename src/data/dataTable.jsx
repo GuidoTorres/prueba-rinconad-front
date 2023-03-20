@@ -349,9 +349,9 @@ export const personalLayout = (
     },
     {
       id: "Trabajador",
-      name: "Trabajador",
+      name: "Apellidos y Nombres",
       selector: (row) =>
-        row?.nombre + " " + row?.apellido_paterno + " " + row?.apellido_materno,
+        row?.apellido_paterno + " " + row?.apellido_materno + " " + row?.nombre,
       width: "300px",
       style: { fontWeigth: "bold" },
       sortable: true,
@@ -499,7 +499,7 @@ export const asociacionLayout = (
       name: "Campamento",
       sortable: true,
 
-      selector: (row) => (row?.campamento ? row.campamento : "Por asignar"),
+      selector: (row) => (row?.campamento ? row?.campamento : "Por asignar"),
     },
     {
       id: "Asignar Trabajadores",
@@ -2742,11 +2742,13 @@ export const transferenciaLayout = (
     {
       id: "codigo",
       name: "Código",
+      width: "100px",
       selector: (row) => row.id,
     },
     {
       id: "descripcion",
       name: "Descripción",
+      width: "250px",
       selector: (row) => row?.nombre,
     },
 

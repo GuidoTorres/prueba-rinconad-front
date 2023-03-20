@@ -185,13 +185,25 @@ const ModalTransferencia = ({ almacen_id, actualizarTabla, id, data }) => {
   const handleSubmit = async (e) => {
     let route = "almacen/transferencia";
     e.preventDefault();
-    setCargando(true);
-    const response = await createData(newJson, route);
-    if (response) {
-      notificacion(response.status, response.msg);
-      actualizarTabla();
-      closeModal();
-      setCargando(false);
+
+    const cantidadSuperior = newJson.filter(
+      (item) => parseInt(item.cantidad) > parseInt(item.stock)
+    );
+
+    if (cantidadSuperior.length > 0) {
+      notificacion(
+        500,
+        "No se puede realizar la transferencia, stock insuficiente en uno de los productos."
+      );
+    } else {
+      setCargando(true);
+      const response = await createData(newJson, route);
+      if (response) {
+        notificacion(response.status, response.msg);
+        actualizarTabla();
+        closeModal();
+        setCargando(false);
+      }
     }
   };
 

@@ -7,8 +7,6 @@ import ModalRegistrarAsociacion from "./ModalRegistrarAsociacion";
 import ModalHistorialContratoAsociacion from "./ModalHistorialContratoAsociacion";
 import { asociacionLayout } from "../../../data/dataTable";
 import { notificacion } from "../../../helpers/mensajes";
-import Cargando from "../../cargando/Cargando";
-import { Empty } from "antd";
 
 const AsociacionLayout = () => {
   const route = "asociacion";
@@ -19,13 +17,8 @@ const AsociacionLayout = () => {
     deleteData,
     data,
     setData,
-    filterText,
     setDataToEdit,
-    modal,
-    setModal,
-    modal1,
-    setModal1,
-    cargando,
+
     setCargando,
   } = useContext(CrudContext);
   const [asociacionId, setAsociacionId] = useState();
@@ -34,6 +27,7 @@ const AsociacionLayout = () => {
   const [asociaciones, setAsociaciones] = useState([]);
   const [registrarAsociacion, setRegistrarAsociacion] = useState(false);
   const [registrarContratoAsociacion, setContratoAsociacion] = useState(false);
+  const [filterText, setFilterText] = useState("");
 
   const getAsociaciones = async () => {
     setCargando(true);
@@ -61,50 +55,78 @@ const AsociacionLayout = () => {
       getAsociaciones();
     }
   };
-
   useEffect(() => {
-    const filtered =
-      asociaciones &&
-      asociaciones
-        .map((item) => [
-          {
-            codigo: item?.codigo,
-            id: item?.id,
-            nombre: item?.nombre,
-            campamento: item?.campamento,
-            tipo: item?.tipo,
-            contrato: item?.contrato,
-            trabajador:
-              item &&
-              item?.trabajadors &&
-              item?.trabajadors?.filter(
-                (prueba) =>
-                  prueba?.nombre
-                    ?.toLowerCase()
-                    ?.includes(filterText.toLowerCase()) ||
-                  prueba?.apellido_paterno
-                    ?.toLowerCase()
-                    ?.includes(filterText.toLowerCase()) ||
-                  prueba?.apellido_materno
-                    ?.toLowerCase()
-                    ?.includes(filterText.toLowerCase())
-              ),
-          },
-        ])
-        .flat();
+    const filtered = asociaciones
+      ?.map((item) => [
+        {
+          codigo: item?.codigo,
+          id: item?.id,
+          nombre: item?.nombre,
+          campamento: item?.campamento,
+          tipo: item?.tipo,
+          contrato: item?.contrato,
+          trabajador: item?.trabajadors?.map((data) => {
+            return {
+              codigo_trabajador: data?.codigo_trabajador,
+              nombre: data?.nombre,
+              apellido_paterno: data?.apellido_paterno,
+              apellido_materno: data?.apellido_materno,
+              dni: data?.dni,
+              telefono: data?.telefono,
+              campamento: data?.campamento,
+            };
+          }),
+        },
+      ])
+      .flat();
+
+      console.log('====================================');
+      console.log(filtered);
+      console.log('====================================');
     setSearch(filtered);
 
     if (filterText) {
-      const filtered2 =
-        filtered &&
-        filtered.filter(
-          (item) =>
-            item?.nombre?.toLowerCase()?.includes(filterText.toLowerCase()) ||
-            item?.trabajador?.length
-        );
+      const filtered2 = filtered?.filter(
+        (item) =>
+          item?.codigo?.toLowerCase()?.includes(filterText.toLowerCase()) ||
+          item?.nombre?.toLowerCase()?.includes(filterText.toLowerCase()) ||
+          item?.campamento?.toLowerCase()?.includes(filterText.toLowerCase()) ||
+          item?.tipo?.toLowerCase()?.includes(filterText.toLowerCase()) ||
+          item?.trabajador
+            ?.filter((data) => data.codigo_trabajador)
+            .toString()
+            .toLowerCase()
+            ?.includes(filterText.toLowerCase()) ||
+          item?.trabajador
+            ?.filter((data) => data.nombre)
+            .toString()
+            .toLowerCase()
+            ?.includes(filterText.toLowerCase()) ||
+          item?.trabajador
+            ?.filter((data) => data.apellido_paterno)
+            .toString()
+            .toLowerCase()
+            ?.includes(filterText.toLowerCase()) ||
+          item?.trabajador
+            ?.filter((data) => data.apellido_materno)
+            .toString()
+            .toLowerCase()
+            ?.includes(filterText.toLowerCase()) ||
+          item?.trabajador
+            ?.filter((data) => data.dni)
+            .toString()
+            .toLowerCase()
+            ?.includes(filterText.toLowerCase())
+      );
+
+
       setSearch(filtered2);
     }
   }, [filterText, asociaciones]);
+
+  console.log('====================================');
+  console.log(search);
+  console.log('====================================');
 
   const changeHandler = (e) => {
     inputFileRef.current.click();
@@ -156,20 +178,16 @@ const AsociacionLayout = () => {
       />
       <Header text={"Asociaciones"} user={"Usuario"} ruta={"/personal"} />
       <div className="margenes">
-        <Buscador abrirModal={setRegistrarAsociacion} registrar={true} />
-
-        {asociaciones.length > 0 ? (
-          <Tabla
-            columns={columns}
-            table={search}
-            actualizarTabla={getAsociaciones}
-          />
-        ) : (
-          <Empty
-            image={Empty.PRESENTED_IMAGE_SIMPLE}
-            description={<span>No hay registros para mostrar.</span>}
-          />
-        )}
+        <Buscador
+          abrirModal={setRegistrarAsociacion}
+          registrar={true}
+          setFilterText={setFilterText}
+        />
+        <Tabla
+          columns={columns}
+          table={search}
+          actualizarTabla={getAsociaciones}
+        />
       </div>
 
       {registrarAsociacion && (

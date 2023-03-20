@@ -3,10 +3,13 @@ import React from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { useState } from "react";
-import { Bar } from "react-chartjs-2";
+
 import { CrudContext } from "../../../context/CrudContext";
 import Header from "../../header/Header";
 import "../styles/estadisticasLayout.css";
+
+import "chart.js/auto";
+import { Bar } from "react-chartjs-2";
 
 const EstadisticasLayout = () => {
   const [fechas, setFechas] = useState({
@@ -42,6 +45,8 @@ const EstadisticasLayout = () => {
           "rgb(201, 203, 207)",
         ],
         borderWidth: 1,
+        borderRadius: 15,
+        fill: false,
       },
     ],
   };
@@ -62,6 +67,10 @@ const EstadisticasLayout = () => {
         setDatos(response.data);
       }
     }
+  };
+
+  const options = {
+    responsive: true,
   };
 
   useEffect(() => {
@@ -98,7 +107,22 @@ const EstadisticasLayout = () => {
         </div>
 
         <div className="grafico-container">
-          <Bar datasetIdKey="id" data={data} responsive= "true" />
+          <Bar
+            data={data}
+            options={{
+              responsive: true,
+              maintainAspectRatio: false,
+              
+              layout: {
+                padding: {
+                  top: 5,
+                  left: 25,
+                  right: 25,
+                  bottom: 15,
+                },
+              },
+            }}
+          />
         </div>
       </div>
     </>

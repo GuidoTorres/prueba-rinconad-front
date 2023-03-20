@@ -839,7 +839,7 @@ export const modalRegistroContratoPersonal = (
       type: (
         <Input
           type="date"
-          value={contrato?.fecha_inicio?.split("T")[0]}
+          value={contrato?.fecha_inicio}
           name="fecha_inicio"
           onChange={handleData}
         />
@@ -1152,7 +1152,6 @@ export const modalRegistroContratoAsociacion = (
         />
       ),
     },
-
     {
       label: <label>Perido de trabajo(quincena)</label>,
       name: "periodo_trabajo",

@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CrudContext } from "../../context/CrudContext";
 import { notificacion } from "../../helpers/mensajes";
-import image from "../../assets/cecomirl.jpeg";
+import cecomirl from "../../assets/cecomirl.jpeg";
 import fondo from "../../assets/fondo-login.jpeg";
 
 import "./login.css";
@@ -68,7 +68,7 @@ const Login = () => {
       <div className="login">
         <section className="login-form">
           <div className="logo">
-            <img src={image} alt="" />
+            <img src={cecomirl} alt="" />
           </div>
           <div className="inputs">
             <div>

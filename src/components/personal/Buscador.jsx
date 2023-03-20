@@ -12,8 +12,9 @@ const Buscador = ({
   actualizarTrabajadores,
   registrar,
   modal,
+  setFilterText
 }) => {
-  const { setFilterText, cargando, setCargando } = useContext(CrudContext);
+  const { cargando, setCargando } = useContext(CrudContext);
   const inputFileRef = useRef(null);
 
   const changeHandler = (e) => {
